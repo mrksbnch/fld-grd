@@ -1,0 +1,10 @@
+{
+    "extends": "airbnb",
+    "rules": {
+        "indent": [2, 4],
+        "spaced-comment": 0,
+        "no-underscore-dangle": [2, {
+            "allowAfterThis": true
+        }]
+    }
+}
