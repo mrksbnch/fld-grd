@@ -1,6 +1,6 @@
 {
   "name": "fld-grd",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Responsive Google Images inspired fluid grid layouts",
   "main": "dist/fld-grd.js",
   "authors": [
