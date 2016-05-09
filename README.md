@@ -1,4 +1,5 @@
 # FLD GRD
+[![fluid grid demo page](/img/thumbnail.png?raw=true)](http://mrksbnch.github.io/fld-grd/)
 
 ## Install
 NPM
