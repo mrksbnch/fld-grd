@@ -4,12 +4,12 @@
 ## Install
 **NPM**
 
-```
+```shell
 npm install --save fld-grd
 ```
 
 **Bower**
-```
+```shell
 bower install --save fld-grd
 ```
 
@@ -61,7 +61,6 @@ Grid gutters with `margin` or `padding` are also supported.
 .fld-grd > div > img {
     vertical-align: top; /* [1] */
 }
-
 ```
 
 ### JavaScript
@@ -97,6 +96,12 @@ var fldGrd = new FldGrd(document.querySelector('.fld-grd'), {
     dataWidth: 'data-fld-width',
     dataHeight: 'data-fld-height',
 });
+
+// Manually update fluid grid
+fldGrd.update();
+
+// Destroy `fldGrd` instance
+fldGrd.destroy();
 ```
 
 ## Browser Support
@@ -108,7 +113,7 @@ To compile and compress `fld-grd.js`, we rely on [npm](https://www.npmjs.com/) a
 ### Setup
 1. Check out the repository
 
-    ```
+    ```shell
     git clone git@github.com:mrksbnch/fld-grd.git
     cd fld-grd
     ```

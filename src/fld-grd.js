@@ -97,12 +97,12 @@ function extend(target, ...args) {
 
 
 /**
-* Fluid Grid constructor
-*
-* @param {element} el
-* @param {object}  [options]
-* @constructor
-*/
+ * Fluid Grid constructor
+ *
+ * @param {element} el
+ * @param {object}  [options]
+ * @constructor
+ */
 const FldGrd = function FldGrd(el, options) {
     if (!(el instanceof Element)) {
         throw new Error('`el` is not an element');
@@ -132,7 +132,7 @@ FldGrd.prototype = {
     _init: function init() {
         this._setup();
         this._attachEventListeners();
-        this.make();
+        this.update();
     },
 
     /**
@@ -178,11 +178,11 @@ FldGrd.prototype = {
     },
 
     /**
-     * Make grid. This is where the "magic" happens
+     * Make/update grid. This is where the "magic" happens
      *
      * @return {object} instance
      */
-    make: function make() {
+    update: function update() {
         const gridWidth = this.el.clientWidth;
         const itemLength = this.items.length;
         let rowIsLast = false;
@@ -226,6 +226,8 @@ FldGrd.prototype = {
 
         // Reset tick
         this._props.pendingResize = false;
+
+        return this;
     },
 
     /**
@@ -251,21 +253,19 @@ FldGrd.prototype = {
         // Throttle resize
         if (!this._props.pendingResize) {
             this._props.pendingResize = true;
-            window.requestAnimationFrame(this.make.bind(this));
+            window.requestAnimationFrame(this.update.bind(this));
         }
     },
 
     /**
      * Destroy fluid grid instance
      *
-     * @return {object} instance
+     * @return {void}
      */
     destroy: function destroy() {
         window.removeEventListener('resize', this._bind.resize);
 
         this.el = this.items = this._bind = this._settings = this._handlers = null;
-
-        return this;
     },
 };
 
