@@ -2,10 +2,15 @@
 [![fluid grid demo page](/img/thumbnail.png?raw=true)](http://mrksbnch.github.io/fld-grd/)
 
 ## Install
-NPM
+**NPM**
 
 ```
 npm install --save fld-grd
+```
+
+**Bower**
+```
+bower install --save fld-grd
 ```
 
 ## Usage
