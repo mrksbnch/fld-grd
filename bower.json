@@ -1,0 +1,24 @@
+{
+  "name": "fld-grd",
+  "version": "1.0.0",
+  "description": "Responsive Google Images inspired fluid grid layouts",
+  "main": "dist/fld-grd.js",
+  "authors": [
+    "Markus Bianchi"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "responsive",
+    "fluid",
+    "flex",
+    "grid"
+  ],
+  "homepage": "https://github.com/mrksbnch/fld-grd",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
