@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fld Grd &mdash; JavaScript fluid grid plugin</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Vanilla JavaScript plugin to create responsive fluid grid layouts as seen on Google Images">
+
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <header class="c-page-head" role="banner">
+            <div class="o-wrapper o-wrapper--small">
+                <div class="c-sticky">
+                    <h1 class="c-sticky__item u-alpha">Fld Grd</h1>
+                </div>
+                <div class="u-beta">
+                    Google Images inspired fluid grid layouts.<wbr>
+                    Works with images or other objects.
+                </div>
+            </div>
+        </header>
+        <main class="c-main" role="main">
+            <div class="o-wrapper">
+                <ul class="o-grid">
+                    <li class="o-grid__item u-1/1 u-1/3@large">
+                        <b>No dependencies</b>
+                        <hr>
+                    </li><!--
+                    --><li class="o-grid__item u-1/1 u-1/3@large">
+                        <b>Lightweight 1.2KB</b> (gzip)
+                        <hr>
+                    </li><!--
+                    --><li class="o-grid__item u-1/1 u-1/3@large">
+                        Tested in <b>IE9+</b>
+                        <hr>
+                    </li>
+                </ul>
+                <div class="o-grid c-fld-grd js-fld-grd">
+                    <div class="o-grid__item c-fld-grd__item" data-fld-width="600" data-fld-height="300">
+                        <img src="https://unsplash.it/g/600/300/?random" width="600">
+                    </div><!--
+                    --><div class="o-grid__item c-fld-grd__item" data-fld-width="400" data-fld-height="300">
+                        <img src="https://unsplash.it/g/400/300/?random" width="400">
+                    </div><!--
+                    --><div class="o-grid__item c-fld-grd__item" data-fld-width="100" data-fld-height="400">
+                        <img src="https://unsplash.it/g/100/400/?random" width="100">
+                    </div><!--
+                    --><div class="o-grid__item c-fld-grd__item" data-fld-width="800" data-fld-height="300">
+                        <img src="https://unsplash.it/g/800/300/?random" width="800">
+                    </div><!--
+                    --><div class="o-grid__item c-fld-grd__item" data-fld-width="300" data-fld-height="550">
+                        <img src="https://unsplash.it/g/300/550/?random" width="300">
+                    </div><!--
+                    --><div class="o-grid__item c-fld-grd__item" data-fld-width="610" data-fld-height="300">
+                        <img src="https://unsplash.it/g/610/300/?random" width="610">
+                    </div><!--
+                    --><div class="o-grid__item c-fld-grd__item" data-fld-width="710" data-fld-height="300">
+                        <img src="https://unsplash.it/g/710/300/?random" width="710">
+                    </div><!--
+                    --><div class="o-grid__item c-fld-grd__item" data-fld-width="100" data-fld-height="300">
+                        <img src="https://unsplash.it/g/100/300/?random" width="100">
+                    </div><!--
+                    --><div class="o-grid__item c-fld-grd__item" data-fld-width="1000" data-fld-height="300">
+                        <img src="https://unsplash.it/g/1000/300/?random" width="1000">
+                    </div><!--
+                    --><div class="o-grid__item c-fld-grd__item" data-fld-width="85" data-fld-height="250">
+                        <img src="https://unsplash.it/g/85/300/?random" width="85">
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="c-page-foot" role="contentinfo">
+            <ul class="o-list-inline">
+                <li>
+                    <a class="u-beta" href="https://github.com/mrksbnch/fld-grd">source on github</a>
+                </li><!--
+                --><li>
+                    <a class="u-beta" href="" download>download</a>
+                </li>
+            </ul>
+            <br>
+            Placeholders images by <a href="https://unsplash.it/">unsplash</a>
+        </footer>
+
+        <!-- JAVASCRIPT -->
+        <script src="https://cdn.rawgit.com/mrksbnch/fld-grd/master/dist/fld-grd.min.js"></script>
+        <script>
+            new FldGrd(document.querySelector('.js-fld-grd'), {
+                rowHeight: 300
+            });
+        </script>
+    </body>
+</html>
