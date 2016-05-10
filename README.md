@@ -49,7 +49,7 @@ Grid gutters with `margin` or `padding` are also supported.
  * 2. Optional: 10px gutter
  */
 .fld-grd > div {
-    float: left /* [1] */
+    float: left; /* [1] */
     padding-right: 5px; /* [2] */
     padding-left: 5px; /* [2] */
 }
