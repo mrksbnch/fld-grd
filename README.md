@@ -19,13 +19,13 @@ bower install --save fld-grd
 
 ```html
 <div class="fld-grd">
-    <div data-fld-width="300" data-fluid-height="200">
+    <div data-fld-width="300" data-fld-height="200">
         <img src="300x200.jpg" width="300">
     </div>
-    <div data-fld-width="600" data-fluid-height="250">
+    <div data-fld-width="600" data-fld-height="250">
         <img src="600x250.jpg" width="600">
     </div>
-    <div data-fld-width="100" data-fluid-height="300">
+    <div data-fld-width="100" data-fld-height="300">
         <img src="100x300.jpg" width="100">
     </div>
 </div>
