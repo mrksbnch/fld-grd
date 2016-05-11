@@ -132,6 +132,7 @@ a {
     list-style: none;
 }
 
+@media (min-width: 450px) {
     .o-list-inline > li {
         display: inline-block;
     }
@@ -139,6 +140,7 @@ a {
     .o-list-inline > li + li {
         margin-left: 2em;
     }
+}
 
 
 
