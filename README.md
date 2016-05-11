@@ -1,5 +1,5 @@
 # FLD GRD
-[![fluid grid demo page](/img/thumbnail.png?raw=true)](http://mrksbnch.github.io/fld-grd/)
+[![fluid grid demo page](/img/thumbnail.png?raw=true)](https://fld-grd.js.org/)
 
 ## Install
 **NPM**
