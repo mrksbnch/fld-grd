@@ -1,7 +1,7 @@
 {
   "name": "fld-grd",
-  "version": "1.1.0",
-  "description": "Responsive Google Images inspired fluid grid layouts",
+  "version": "1.1.1",
+  "description": "Responsive Google Images/Flickr inspired fluid grid layouts",
   "main": "dist/fld-grd.js",
   "jsnext:main": "src/fld-grd.js",
   "files": [
