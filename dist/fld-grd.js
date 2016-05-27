@@ -22,13 +22,13 @@
     /**
      * Defaults
      *
-     * @type {object}
+     * @type {Object}
      */
     var defaults = {
         /**
          * Maximum row height
          *
-         * @type {integer}
+         * @type {Integer}
          */
         rowHeight: 250,
 
@@ -36,11 +36,11 @@
          * Give "orphans" — elements in the last row that do not form a complete row — a specific
          * height. By default, "orphans" will have the average height of the other rows
          *
-         * @type   {function}
-         * @param  {object}   rows
-         * @param  {Number}   rows.heightAvg Average height
+         * @type   {Function}
+         * @param  {Object}   rows
+         * @param  {number}   rows.heightAvg Average row height
          * @param  {Array}    rows.heights   Height of all rows
-         * @return {Number}
+         * @return {number}
          */
         rowHeightOrphan: function rowHeightOrphan(rows) {
             return Math.round(rows.heightAvg);
@@ -50,21 +50,21 @@
          * CSS Selector for fluid grid items. It's useful if you also have other elements in your
          * container that shouldn't be treated as grid items
          *
-         * @type {String}
+         * @type {string}
          */
         itemSelector: '*',
 
         /**
          * CSS Selector for objects inside grid items. `width` and `height` is applied to this element
          *
-         * @type {String}
+         * @type {string}
          */
         objSelector: 'img',
 
         /**
          * Specify data attribute names that are used to determine the dimensions for each item
          *
-         * @type {String}
+         * @type {string}
          */
         dataWidth: 'data-fld-width',
         dataHeight: 'data-fld-height'
@@ -74,9 +74,9 @@
      * Get direct children that match the given selector.
      * Based on http://blog.wearecolony.com/a-year-without-jquery/
      *
-     * @param   {element}   el
-     * @param   {String}    selector
-     * @return  {element[]}
+     * @param   {Element}   el
+     * @param   {string}    selector
+     * @return  {Element[]}
      */
     function queryChildren(el, selector) {
         var childSelectors = [];
@@ -109,8 +109,8 @@
      * Copy the values of all enumerable own properties from one or more source
      * objects to a target object
      *
-     * @param  {object} target
-     * @return {object} output
+     * @param  {Object} target
+     * @return {Object} output
      */
     function extend(target) {
         for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
@@ -133,8 +133,8 @@
     /**
      * Fluid Grid constructor
      *
-     * @param {element} el
-     * @param {object}  [options]
+     * @param {Element} el
+     * @param {Object}  [options]
      * @constructor
      */
     var FldGrd = function FldGrd(el, options) {
@@ -161,7 +161,7 @@
     FldGrd.prototype = {
         /**
          * @private
-         * @return  {void}
+         * @return  {Void}
          */
         _init: function init() {
             this._setup();
@@ -173,7 +173,7 @@
          * Calculate gutter width and dimesions for each item
          *
          * @private
-         * @return {void}
+         * @return {Void}
          */
         _setup: function setup() {
             var elItems = null;
@@ -214,7 +214,7 @@
         /**
          * Make/update grid. This is where the "magic" happens
          *
-         * @return {object} instance
+         * @return {Object} instance
          */
         update: function update() {
             var gridWidth = this.el.clientWidth;
@@ -282,7 +282,7 @@
         /**
          * Attach event listeners
          *
-         * @return  {void}
+         * @return  {Void}
          * @private
          */
         _attachEventListeners: function addEventListener() {
@@ -295,11 +295,11 @@
          * Fired when browser window is resized
          *
          * @private
-         * @param   {object} e
-         * @return  {void}
+         * @param   {Object} e Resize Event
+         * @return  {Void}
          */
         _handleResize: function handleResize() {
-            // Throttle resize
+            // Throttle resize event
             if (!this._props.pendingResize) {
                 this._props.pendingResize = true;
                 window.requestAnimationFrame(this.update.bind(this));
@@ -309,7 +309,7 @@
         /**
          * Destroy fluid grid instance
          *
-         * @return {void}
+         * @return {Void}
          */
         destroy: function destroy() {
             window.removeEventListener('resize', this._bind.resize);
