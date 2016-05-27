@@ -120,7 +120,7 @@ fldGrd.destroy();
 All major browsers are supported. If you need to support IE9, you'll have to [polyfill `requestAnimationFrame`](https://gist.github.com/paulirish/1579671).
 
 ## Local Development
-To compile and compress `fld-grd.js`, we rely on [npm](https://www.npmjs.com/) as a Build Tool.
+To compile and compress `fldGrd.js`, we rely on [npm](https://www.npmjs.com/) as a Build Tool.
 
 ### Setup
 1. Check out the repository

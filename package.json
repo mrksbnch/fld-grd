@@ -1,12 +1,12 @@
 {
   "name": "fld-grd",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Responsive Google Images/Flickr inspired fluid grid layouts",
-  "main": "dist/fld-grd.js",
-  "jsnext:main": "src/fld-grd.js",
+  "main": "dist/fldGrd.js",
+  "jsnext:main": "src/fldGrd.js",
   "files": [
-    "src/fld-grd.js",
-    "dist/fld-grd.min.js"
+    "src/fldGrd.js",
+    "dist/fldGrd.min.js"
   ],
   "dependencies": {},
   "devDependencies": {
@@ -24,7 +24,7 @@
   },
   "scripts": {
     "lint": "eslint src",
-    "uglify": "uglifyjs dist/fld-grd.js -m -o dist/fld-grd.min.js",
+    "uglify": "uglifyjs dist/fldGrd.js -m -o dist/fldGrd.min.js",
     "babel": "babel src --out-dir dist",
     "build": "npm run lint && npm run babel && npm run uglify",
     "watch": "onchange 'src/*.js' -- npm run build -s"
