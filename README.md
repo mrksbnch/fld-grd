@@ -74,6 +74,18 @@ var fldGrd = new FldGrd(document.querySelector('.fld-grd'), {
     rowHeight: 250,
 
     /**
+     * Give "orphans" — elements in the last row that do not form a complete row — a specific
+     * height. By default, "orphans" will have the average height of the other rows
+     *
+     * @type   {function}
+     * @param  {object}   rows
+     * @param  {Number}   rows.heightAvg Average height
+     * @param  {Array}    rows.heights
+     * @return {Number}
+     */
+    rowHeightOrphan: (rows) => Math.round(rows.heightAvg),
+
+    /**
      * CSS Selector for fluid grid items. It's useful if you also have other elements in your
      * container that shouldn't be treated as grid items
      *

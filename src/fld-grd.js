@@ -15,6 +15,18 @@ const defaults = {
     rowHeight: 250,
 
     /**
+     * Give "orphans" — elements in the last row that do not form a complete row — a specific
+     * height. By default, "orphans" will have the average height of the other rows
+     *
+     * @type   {function}
+     * @param  {object}   rows
+     * @param  {Number}   rows.heightAvg Average height
+     * @param  {Array}    rows.heights   Height of all rows
+     * @return {Number}
+     */
+    rowHeightOrphan: (rows) => Math.round(rows.heightAvg),
+
+    /**
      * CSS Selector for fluid grid items. It's useful if you also have other elements in your
      * container that shouldn't be treated as grid items
      *
@@ -185,31 +197,46 @@ FldGrd.prototype = {
     update: function update() {
         const gridWidth = this.el.clientWidth;
         const itemLength = this.items.length;
-        let rowIsLast = false;
+        const rowHeightArray = [];
         let rowFirstItem = 0;
         let rowWidth = 0;
         let rowMaxWidth = 0;
         let rowGutterWidth = 0;
         let rowHeight = 0;
+        let rowHeightTotal = 0;
         let rowRatio = 0;
         let itemWidth = 0;
+        let itemIsLast = false;
         let i = 0;
         let x = 0;
 
         for (; i < itemLength; i++) {
             rowWidth += this.items[i].normWidth;
             rowGutterWidth += this._props.gutter;
-            rowIsLast = i === itemLength - 1;
+            itemIsLast = i === itemLength - 1;
 
-            if (rowWidth + rowGutterWidth >= gridWidth || rowIsLast) {
-                // Since gutters always have the same width (regardless of `rowHeight`), we need
-                // to exclude them from the calculations
+            if (rowWidth + rowGutterWidth >= gridWidth || itemIsLast) {
+                // Since gutters always have the same width (regardless of `rowHeight`), we
+                // need to exclude them from the calculations
                 rowMaxWidth = gridWidth - rowGutterWidth;
-                rowRatio = Math.min(rowMaxWidth / rowWidth, 1);
-                rowHeight = Math.floor(rowRatio * this._settings.rowHeight);
+
+                if (rowMaxWidth / rowWidth > 1 && itemIsLast) {
+                    // Use a different height for orphan elements
+                    rowHeight = this._settings.rowHeightOrphan.call(this, {
+                        heightAvg: rowHeightTotal / rowHeightArray.length,
+                        heights: rowHeightArray,
+                    });
+                    rowRatio = rowHeight / this._settings.rowHeight;
+                } else {
+                    rowRatio = Math.min(rowMaxWidth / rowWidth, 1);
+                    rowHeight = Math.floor(rowRatio * this._settings.rowHeight);
+                }
+
+                rowHeightArray.push(rowHeight);
+                rowHeightTotal += rowHeight;
 
                 for (x = rowFirstItem; x <= i; x++) {
-                    // We need to substract 1 to prevent some resize issues in Firefox and
+                    // We need to substract `1` to prevent some resize issues in Firefox and
                     // Safari. Need to find a better way to solve this...
                     itemWidth = Math.floor(rowRatio * this.items[x].normWidth) - 1;
 
@@ -237,7 +264,7 @@ FldGrd.prototype = {
      * @private
      */
     _attachEventListeners: function addEventListener() {
-        this._bind.resize = this._onResize.bind(this);
+        this._bind.resize = this._handleResize.bind(this);
 
         window.addEventListener('resize', this._bind.resize);
     },
@@ -249,7 +276,7 @@ FldGrd.prototype = {
      * @param   {object} e
      * @return  {void}
      */
-    _onResize: function onRsize() {
+    _handleResize: function handleResize() {
         // Throttle resize
         if (!this._props.pendingResize) {
             this._props.pendingResize = true;
