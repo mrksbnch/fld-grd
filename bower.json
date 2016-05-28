@@ -1,7 +1,7 @@
 {
   "name": "fld-grd",
   "description": "Responsive Google Images/Flickr inspired fluid grid layouts",
-  "main": "dist/fld-grd.js",
+  "main": "dist/fldGrd.js",
   "authors": [
     "Markus Bianchi"
   ],
