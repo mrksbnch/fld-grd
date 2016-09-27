@@ -15,7 +15,7 @@ bower install --save fld-grd
 
 ## Usage
 ### HTML
-`Fld Grd` works with one container element and a set of child elements. You can use whatever class names you want and it's also possible to change the data attribute names.
+`Fld Grd` works with one container element and a set of child elements. You can use whatever class names you want, and it's also possible to change the data attribute names.
 
 ```html
 <div class="fld-grd">
@@ -117,7 +117,7 @@ fldGrd.destroy();
 ```
 
 ## Browser Support
-All major browsers are supported. If you need to support IE9, you'll have to [polyfill `requestAnimationFrame`](https://gist.github.com/paulirish/1579671).
+All major browsers are supported (IE9+). If you need to support IE9, you'll have to [polyfill `requestAnimationFrame`](https://gist.github.com/paulirish/1579671).
 
 ## Local Development
 To compile and compress `fldGrd.js`, we rely on [npm](https://www.npmjs.com/) as a Build Tool.
