@@ -1,5 +1,8 @@
 {
     "extends": "airbnb",
+    "env": {
+        "browser": true
+    },
     "rules": {
         "indent": [2, 4],
         "spaced-comment": 0,

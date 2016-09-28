@@ -24,7 +24,7 @@ const defaults = {
      * @param  {Array}    rows.heights   Height of all rows
      * @return {number}
      */
-    rowHeightOrphan: (rows) => Math.round(rows.heightAvg),
+    rowHeightOrphan: rows => Math.round(rows.heightAvg),
 
     /**
      * CSS Selector for fluid grid items. It's useful if you also have other elements in your
@@ -171,21 +171,19 @@ FldGrd.prototype = {
         this._props.gutter += parseInt(computedStyle.paddingLeft, 10) || 0;
         this._props.gutter += parseInt(computedStyle.paddingRight, 10) || 0;
 
-        for (; i < itemLength; i++) {
+        for (; i < itemLength; i += 1) {
             itemWidth = parseInt(elItems[i].getAttribute(this._settings.dataWidth), 10);
             itemHeight = parseInt(elItems[i].getAttribute(this._settings.dataHeight), 10);
 
             // Ignore items with no or invalid data attribute values
-            if (isNaN(itemWidth) || isNaN(itemHeight)) {
-                continue;
+            if (!isNaN(itemWidth) && !isNaN(itemHeight)) {
+                this.items.push({
+                    width: itemWidth,
+                    normWidth: itemWidth * (this._settings.rowHeight / itemHeight),
+                    height: itemHeight,
+                    el: elItems[i].querySelector(this._settings.objSelector),
+                });
             }
-
-            this.items.push({
-                width: itemWidth,
-                normWidth: itemWidth * (this._settings.rowHeight / itemHeight),
-                height: itemHeight,
-                el: elItems[i].querySelector(this._settings.objSelector),
-            });
         }
     },
 
@@ -210,7 +208,7 @@ FldGrd.prototype = {
         let i = 0;
         let x = 0;
 
-        for (; i < itemLength; i++) {
+        for (; i < itemLength; i += 1) {
             rowWidth += this.items[i].normWidth;
             rowGutterWidth += this._props.gutter;
             itemIsLast = i === itemLength - 1;
@@ -235,7 +233,7 @@ FldGrd.prototype = {
                 rowHeightArray.push(rowHeight);
                 rowHeightTotal += rowHeight;
 
-                for (x = rowFirstItem; x <= i; x++) {
+                for (x = rowFirstItem; x <= i; x += 1) {
                     // We need to substract `1` to prevent some resize issues in Firefox and
                     // Safari. Need to find a better way to solve this...
                     itemWidth = Math.floor(rowRatio * this.items[x].normWidth) - 1;

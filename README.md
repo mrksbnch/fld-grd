@@ -83,7 +83,7 @@ var fldGrd = new FldGrd(document.querySelector('.fld-grd'), {
      * @param  {Array}    rows.heights
      * @return {number}
      */
-    rowHeightOrphan: (rows) => Math.round(rows.heightAvg),
+    rowHeightOrphan: rows => Math.round(rows.heightAvg),
 
     /**
      * CSS Selector for fluid grid items. It's useful if you also have other elements in your
