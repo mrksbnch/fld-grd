@@ -2,8 +2,13 @@
 [![fluid grid demo page](/img/thumbnail.png?raw=true)](https://fld-grd.js.org/)
 
 ## Install
-**NPM**
+**Yarn**
+```shell
+yarn add fld-grd
+```
 
+
+**NPM**
 ```shell
 npm install --save fld-grd
 ```
